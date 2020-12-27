@@ -1,0 +1,30 @@
+{
+  "name": "node_chat",
+  "version": "1.0.0",
+  "description": "A simple chat using NodeJs",
+  "main": "index.js",
+  "author": "John Barbosa",
+  "homepage": "https://github.com/j0hnbarbosa/node_chat#readme",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/j0hnbarbosa/node_chat.git"
+  },
+  "keywords": ["nodeJs", "node","chat"],
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/j0hnbarbosa/node_chat/issues"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.6"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.12.10",
+    "@babel/core": "^7.12.10",
+    "@babel/node": "^7.12.10",
+    "@babel/preset-env": "^7.12.11"
+  }
+}
