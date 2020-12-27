@@ -5,7 +5,7 @@
 
 ## TO-DO
   #### User part
-  - [ x ] Create user login screen
+  - [x] Create user login screen
   - [ ] Save user in the database
   - [ ] Validate if a user has a valid token
 
