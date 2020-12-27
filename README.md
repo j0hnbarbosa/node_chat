@@ -1,5 +1,8 @@
 # A simple chat made using NodeJs 
 
+# How to execute
+### Run: npm install
+
 ## TO-DO
   #### User part
   - [ ] Create user login screen
