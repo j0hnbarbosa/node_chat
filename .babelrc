@@ -1,0 +1,13 @@
+// Used to allow to use "import/export" instead of "require"
+{
+	"presets": [
+		[
+			"@babel/preset-env",
+			{
+				"targets": {
+					"node": "14"
+				}
+			}
+		]
+	]
+}
