@@ -2,7 +2,8 @@
 
 # How to execute
 ### Run: npm install
-### Run: npm start
+### Start API: npm run api
+### Start WEB: npm run web
 
 ## TO-DO
   ### Make it works
