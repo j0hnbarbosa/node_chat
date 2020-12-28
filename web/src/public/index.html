@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+
+  <title>Node Chat</title>
+</head>
+<body>
+
+  <form onsubmit="onSubmit(event)" method="POST">
+    <div class="container">
+      <div class="card">
+        <div class="header-text">LOGIN</div>
+        <div class="card-content">
+          <input class="input-text" type="text" name="name" placeholder="Name" />
+          <input class="input-text" type="text" name="email" placeholder="Email" />
+          <input class="input-text" type="password" name="password" placeholder="Password" />
+          
+          <div class="container-button">
+            <input class="input-button" type="submit" value="Confirm" />
+          </div>
+
+        </div>
+      </div>
+      <div class="simple-text">
+        Do your login to access the chat
+      </div>
+    </div>
+  </form>
+
+  <script>
+    const onSubmit = (e) => {
+      debugger
+      let nextValue = 0;
+      const formBody = new URLSearchParams({
+      'userName': e.currentTarget[nextValue++].value,
+      'email': e.currentTarget[nextValue++].value,
+      'password': e.currentTarget[nextValue++].value,
+    });
+
+      fetch('http://localhost:8080', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+        },
+        mode: 'no-cors',
+        body: formBody,
+      })
+      .catch(err => {
+        console.log(err); 
+      })
+
+      console.log("HERER");
+      e.preventDefault();
+    }
+  </script>
+
+</body>
+</html>

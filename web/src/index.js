@@ -5,10 +5,12 @@ import http from "http";
 import express from "express";
 
 const app = express();
+
 const server  = http.createServer(app);
-const port = process.env.PORT || 3000;
+const port = process.env.PORT_WEB || 3002;
 
 app.use(express.static(path.join(__dirname, "public")));
+
 
 server.listen(port, () => {
   console.log(`Server is running at http://localhost:${port}`, process.env.NODE_ENV);

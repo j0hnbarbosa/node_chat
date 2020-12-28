@@ -2,8 +2,13 @@
 
 # How to execute
 ### Run: npm install
+### Run: npm start
 
 ## TO-DO
+  ### Make it works
+  - [ ]
+  ### Refactore the code after it works
+  - [ ]
   #### User part
   - [x] Create user login screen
   - [ ] Save user in the database
