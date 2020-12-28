@@ -2,8 +2,13 @@
 
 # How to execute
 ### Run: npm install
+### Start API: npm run api
+### Start WEB: npm run web
 
 ## TO-DO
+  ### First steps
+  - [ ] Make it works
+  - [ ] Refactore the code after it works
   #### User part
   - [x] Create user login screen
   - [ ] Save user in the database
