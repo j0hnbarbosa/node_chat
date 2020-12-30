@@ -2,7 +2,7 @@ require("dotenv").config(); // To use the values of the .env file
 
 import path from "path";
 import http from "http";
-import express from "express";
+import express from "express"
 
 const app = express();
 
