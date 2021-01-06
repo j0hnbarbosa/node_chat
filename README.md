@@ -11,7 +11,7 @@
   - [ ] Refactore the code after it works
   #### User part
   - [x] Create user login screen
-  - [ ] Save user in the database
+  - [x] Save user in the database
   - [ ] Validate if a user has a valid token
 
   #### Chat part

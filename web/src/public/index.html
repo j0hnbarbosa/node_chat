@@ -9,7 +9,7 @@
 
   <title>Node Chat</title>
 </head>
-<body>
+<body id="root">
 
   <form onsubmit="onSubmit(event)" method="POST">
     <div class="container">
@@ -36,7 +36,7 @@
     const onSubmit = (e) => {
       let nextValue = 0;
       const formBody = new URLSearchParams({
-      'userName': e.currentTarget[nextValue++].value,
+      'username': e.currentTarget[nextValue++].value,
       'email': e.currentTarget[nextValue++].value,
       'password': e.currentTarget[nextValue++].value,
     });
@@ -48,6 +48,9 @@
         },
         mode: 'no-cors',
         body: formBody,
+      }).then(res => {
+        debugger
+        document.write("HELLO THERE!");
       })
       .catch(err => {
         console.log(err); 
