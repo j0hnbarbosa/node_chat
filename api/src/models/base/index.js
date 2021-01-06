@@ -1,19 +1,12 @@
-import database from "../../config/database";
-import DataType from "sequelize";
+import DataTypes from "sequelize";
 
-const base = (entity=null, fields=null) => {
-  if(!entity && !fields) {
-    console.log("Iside if");
-    return database;
-  }
-
-  const id = {
-    type: DataType.UUID,
-    defaultValue: DataType.UUIDV4,
-    primaryKey: true
-  };
-
-  return database.define(entity, {id, ...fields});
+const id = {
+  type: DataTypes.UUID,
+  defaultValue: DataTypes.UUIDV4,
+  primaryKey: true
 };
 
-export default base;
+
+export {
+  id,
+};

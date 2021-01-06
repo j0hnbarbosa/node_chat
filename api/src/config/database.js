@@ -1,6 +1,4 @@
-import Sequelize from "sequelize";
-
-const database = new Sequelize({
+module.exports = {
   host: "localhost",
   database: "postgres",
   username: "postgres",
@@ -12,6 +10,4 @@ const database = new Sequelize({
     min: 0,
     idle: 5000
   },
-});
-
-export default database;
+};
