@@ -4,11 +4,12 @@
 const getTable = () => document.getElementById("table-root");
 
 const generateTabe = (objValue, index, tagType) => {
-  const { createdAt, updatedAt, ...obj } = objValue;
-  const row  = document.createElement("tr");
+  const { updatedAt, ...obj } = objValue;
+  const row = document.createElement("tr");
 
-  if(index !== "header") {
+  if (index !== "header") {
     obj.id = index;
+    obj.createdAt = moment(obj.createdAt).format("DD/MM/YYYY hh:mm:ss"); 
   }
 
   Object.values(obj).forEach((value) => {
@@ -20,20 +21,26 @@ const generateTabe = (objValue, index, tagType) => {
   return row;
 };
 
-const buildTable = (data) => {
-  const mock = new Array(5).fill(null).map((v, index) => ({
-    username: `name${index}`, 
-    email: `name${index}@email.com`, 
-    password: `password${index}`
-  }));
+// const mock = new Array(5).fill(null).map((v, index) => ({
+//   username: `name${index}`,
+//   email: `name${index}@email.com`,
+//   password: `password${index}`
+// }));
 
+const buildTable = (data) => {
   console.log(data);
   const table = getTable();
-  
-  
-  if(table) {
-    if(table.childElementCount === 0) {
-      const objHeader = {num: "N°", user: "Username", email: "Email", psw: "Password" };
+
+
+  if (table) {
+    if (table.childElementCount === 0) {
+      const objHeader = {
+        num: "N°",
+        user: "Username",
+        email: "Email",
+        psw: "Password",
+        creat: "CreatedAt"
+      };
       const rowHeader = generateTabe(objHeader, "header", "th");
       table.appendChild(rowHeader);
     }
