@@ -1,0 +1,13 @@
+// .sequelizerc
+
+// To be able to use export/import in the migrations files
+require("@babel/register");
+
+const path = require('path');
+
+module.exports = {
+  'config': path.resolve(__dirname, 'api', 'src', 'config', 'database.js'),
+  'models-path': path.resolve(__dirname, 'api', 'src', 'models'),
+  'seeders-path': path.resolve(__dirname, 'api', 'src', 'seeders'),
+  'migrations-path': path.resolve(__dirname, 'api', 'src', 'database', 'migrations')
+}

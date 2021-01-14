@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,54 +10,41 @@
 
   <title>Node Chat</title>
 </head>
-<body>
 
-  <form onsubmit="onSubmit(event)" method="POST">
-    <div class="container">
-      <div class="card">
-        <div class="header-text">LOGIN</div>
-        <div class="card-content">
-          <input class="input-text" type="text" name="name" placeholder="Name" />
-          <input class="input-text" type="text" name="email" placeholder="Email" />
-          <input class="input-text" type="password" name="password" placeholder="Password" />
-          
-          <div class="container-button">
-            <input class="input-button" type="submit" value="Confirm" />
+<body id="root">
+
+  <div class="container">
+    <form onsubmit="onSubmit(event)" method="POST">
+      <div class="container-login">
+        <div class="card">
+          <div class="content-login">
+            <div class="header-text">LOGIN</div>
+            <div class="card-content">
+              <input class="input-text" type="text" name="name" placeholder="Name" />
+              <input class="input-text" type="text" name="email" placeholder="Email" />
+              <input class="input-text" type="password" name="password" placeholder="Password" />
+
+              <div class="container-button">
+                <input class="input-button" type="submit" value="Confirm" />
+              </div>
+            </div>
           </div>
-
         </div>
+
+        <div class="simple-text">
+          Do your login to access the chat
+        </div>
+        <div class="simple-text">
+          Access Users page <a href="users.html">HERE</a>
+        </div>
+
       </div>
-      <div class="simple-text">
-        Do your login to access the chat
-      </div>
-    </div>
-  </form>
+    </form>
+  </div>
 
-  <script>
-    const onSubmit = (e) => {
-      let nextValue = 0;
-      const formBody = new URLSearchParams({
-      'userName': e.currentTarget[nextValue++].value,
-      'email': e.currentTarget[nextValue++].value,
-      'password': e.currentTarget[nextValue++].value,
-    });
-
-      fetch('http://localhost:8080', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
-        },
-        mode: 'no-cors',
-        body: formBody,
-      })
-      .catch(err => {
-        console.log(err); 
-      })
-
-      console.log("HERER");
-      e.preventDefault();
-    }
-  </script>
+  <script type="text/javascript" src="./script/config.js"></script>
+  <script type="text/javascript" src="./script/login.js"></script>
 
 </body>
+
 </html>

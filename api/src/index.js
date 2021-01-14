@@ -1,37 +1,38 @@
 require("dotenv").config(); // To use the values of the .env file
+require("./database");
 
-import path from "path";
+import routes from "./routes";
 import http from "http";
 import express from "express";
 import bodyParser from "body-parser";
-import  multer from "multer";
+import cors from "cors";
+
+const port = process.env.PORT || 3000;
+const portWeb = process.env.PORT_WEB || 3002;
 
 const app = express();
-// const upload = multer();
+app.use(cors());
 
-const server  = http.createServer(app);
-const port = process.env.PORT || 3000;
-
-app.get("/", (req, res) => {
-  res.send("OK");
-});
-
+// Used to restric the source origin of the requests.
+// app.use(function(req, res, next) {
+//   res.header("Access-Control-Allow-Origin", "*");
+//   const allowedOrigins = [`http://localhost:${portWeb}`, `http://192.168.15.19:${portWeb}`];
+//   const origin = req.headers.origin;
+//   if (allowedOrigins.includes(origin)) {
+//     res.header("Access-Control-Allow-Origin", origin);
+//   }
+//   res.header("Access-Control-Allow-Methods", "POST, GET, OPTIONS");
+//   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+//   next();
+// });
 
 // for parsing application/json
 app.use(bodyParser.json()); 
-
 // for parsing application/xwww-
 app.use(bodyParser.urlencoded({ extended: true })); 
-//form-urlencoded
+app.use(routes);
 
-// for parsing multipart/form-data
-// app.use(upload.array()); 
-// app.use(express.static(path.join(__dirname, "public")));
-
-app.post("/", (req, res) => {
-  console.log(req.body);
-  res.send("recieved your request!");
-});
+const server  = http.createServer(app);
 
 server.listen(port, () => {
   console.log(`Server is running at http://localhost:${port}`, process.env.NODE_ENV);
