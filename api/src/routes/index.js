@@ -9,4 +9,5 @@ routes.post("/", UserConttroler.create);
 routes.delete("/", UserConttroler.delete);
 routes.put("/", UserConttroler.update);
 
+
 export default routes;
