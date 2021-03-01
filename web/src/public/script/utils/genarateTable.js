@@ -11,13 +11,16 @@ const generateTabe = (objValue, index, tagType) => {
     obj.id = index;
     obj.createdAt = moment(obj.createdAt).format("DD/MM/YYYY hh:mm:ss"); 
   }
+  const test = _.map(obj, (v) => ({test: obj}));
+  // console.log(test);
 
-  Object.values(obj).forEach((value) => {
+  _.forEach(obj, (value) => {
     const cell = document.createElement(tagType);
     const text = document.createTextNode(value || "-");
     cell.appendChild(text);
     row.appendChild(cell);
   });
+
   return row;
 };
 
@@ -28,7 +31,7 @@ const generateTabe = (objValue, index, tagType) => {
 // }));
 
 const buildTable = (data) => {
-  console.log(data);
+  // console.log(data);
   const table = getTable();
 
 

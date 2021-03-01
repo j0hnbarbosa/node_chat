@@ -28,10 +28,16 @@ npm run start
   #### User part
   - [x] Create user login screen
   - [x] Save user in the database
-  - [ ] Validate if a user has a valid token
+  - [x] Validate if a user has a valid token
+  - [] Add a button to exit in all pages that the user need a token to access
 
   #### Chat part
   - [ ] Verify users that are online
   - [ ] Must be able to talk with a specifc user
   - [ ] Must be able to talk with all users online
-
+  
+  #### Others fixes
+  - [ ] Email should be unique
+  - [ ] Stores the JWT in the httpOnly coockie
+  - [ ] Every time a user do a request the expire time should be reseted if the user not do a request during the expire time disconect the user.
+  

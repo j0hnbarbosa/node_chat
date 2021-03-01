@@ -35,5 +35,5 @@ app.use(routes);
 const server  = http.createServer(app);
 
 server.listen(port, () => {
-  console.log(`Server is running at http://localhost:${port}`, process.env.NODE_ENV);
+  console.log(`Server API is running at http://localhost:${port}`, process.env.NODE_ENV);
 });

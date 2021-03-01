@@ -17,27 +17,27 @@
 <div id="msg-infra"></div>
 
   <div class="container">
-    <form onsubmit="onLogin(event)" method="POST">
+    <form onsubmit="onSubmit(event)" method="POST">
       <div class="container-login">
         <div class="card">
           <div class="content-login">
-            <div class="header-text">LOGIN</div>
+            <div class="header-text">REGISTER</div>
             <div class="card-content">
+              <input class="input-text" type="text" name="name" placeholder="Name" />
               <input class="input-text" type="text" name="email" placeholder="Email" />
               <input class="input-text" type="password" name="password" placeholder="Password" />
+              <input class="input-text" type="password" name="password-confirm" placeholder="Confirm Password" />
 
               <div class="container-button">
                 <input class="input-button" type="submit" value="Confirm" />
               </div>
+
             </div>
           </div>
         </div>
 
         <div class="simple-text">
-          Do your login to access the chat or <a href="register.html">REGISTER</a>
-        </div>
-        <div class="simple-text">
-          Access Users page <a href="users.html">HERE</a>
+          Do your login to access the chat <a href="/">HERE</a>
         </div>
 
       </div>
@@ -45,9 +45,9 @@
   </div>
 
   <script type="text/javascript" src="./script/services/config.js"></script>
-    <script type="text/javascript" src="./script/utils/getUtils.js"></script>
-  <script type="text/javascript" src="./script/login.js"></script>
-
+  <script type="text/javascript" src="./script/utils/getUtils.js"></script>
+  <script type="text/javascript" src="./script/register.js"></script>
+  
 </body>
 
 </html>

@@ -133,3 +133,21 @@ td {
     padding: 15px;
     overflow: auto;
 }
+
+.go-back {
+    margin: 10px;
+
+}
+.go-back:hover {
+    cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+}
+
+#msg-infra {
+    width: auto;
+    text-align: center;
+    color: firebrick;
+}

@@ -10,7 +10,7 @@
     "web": "nodemon --exec babel-node web/src",
     "test": "echo \"Error: no test specified\" && exit 1",
     "babel-node": "babel-node",
-    "start": "start npm run api && start npm run web"
+    "start": "concurrently \"npm run api\" \"npm run web\""
   },
   "repository": {
     "type": "git",
@@ -31,6 +31,7 @@
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
     "multer": "^1.4.2",
     "nodemon": "^2.0.6",
     "pg": "^8.5.1",
@@ -44,6 +45,7 @@
     "@babel/preset-env": "^7.12.11",
     "@babel/register": "^7.12.10",
     "babel-register": "^6.26.0",
+    "concurrently": "^5.3.0",
     "eslint": "^7.16.0",
     "sequelize-cli": "^6.2.0"
   }

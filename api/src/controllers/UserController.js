@@ -4,14 +4,14 @@ const UserController = {
   findAll: async (req, res) => {
     const { id } = req.body;
     if(id) {
-      const user = await Users.findOne({ where: { id }});
+      const user = await Users.findOne({ where: { id },   order: [["createdAt", "DESC"]] });
       if(!user) {
         return res.sendStatus(404);
       }
       return res.status(200).send(user);
     }
 
-    const users = await Users.findAll();
+    const users = await Users.findAll({  order: [["createdAt", "DESC"]] });
     return res.status(200).send(users);
   },
 

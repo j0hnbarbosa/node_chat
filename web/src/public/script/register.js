@@ -1,31 +1,31 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
 
-const onLogin = async (e) => {
+
+const onSubmit = async (e) => {
   e.preventDefault();
 
   const values = getInputs(e);
 
-  console.log("Inside loging script file!", values);
-
-
-  if (values) {
+  if(values) {
     const formBody = new URLSearchParams({
+      "username": values["name"].trim(),
       "email": values["email"].trim(),
       "password": values["password"].trim(),
     });
 
-    const { data, res } = await getFetch(`${URL_WEB}/`, { "method": "POST", headers, "body": formBody });
-      
-    if (res.status !== 200) {
-      return null;
-    }
+    const url = `${URL_WEB}/register`;
+
+    const { data } = await getFetch(url, { "method": "POST", headers, "body": formBody });
 
     // If the status is OK it will return the token. 
     console.log("TOKEN: ", data);
 
     localStorage.setItem("token", data.token);
 
+    alert("Your data has been recorded in the database!");
+    console.log(window);
     window.location.href = `${URL_WEB.replace(/8080/, "8082")}/users.html`;
+
   }
 };
