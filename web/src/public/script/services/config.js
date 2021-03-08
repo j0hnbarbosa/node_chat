@@ -5,7 +5,7 @@ const URL_BASE = document.baseURI.replace("//", "/").split("/")[1];
 console.log(URL_BASE);
 let URL_WEB = "http://localhost:8080";
 if(URL_BASE !== "localhost:8082") {
-  URL_WEB = "http://192.168.15.16:8080";
+  URL_WEB = "http://192.168.15.18:8080";
 }
 
 const headers = new Headers({
@@ -14,10 +14,12 @@ const headers = new Headers({
   "Accept": "application/json",
 });
 
-const getFetch = async (url, headers) => {
-  try {
 
-    const res = await fetch(url, headers);
+const getFetch = async (url = "", headers) => {
+  try {
+    const url_endpoint = `${URL_WEB}/${url.replace("/", "")}`;
+
+    const res = await fetch(url_endpoint, headers);
     
     if(res.status !== 200) {
       console.log("res);", res);
@@ -28,7 +30,8 @@ const getFetch = async (url, headers) => {
         window.location.href = "/";
       }
 
-      throw { message: res.statusText };
+      const errorMsg = (await res.json()).message || res.statusText;
+      throw { message: errorMsg };
     }
 
     const data = await res.json();

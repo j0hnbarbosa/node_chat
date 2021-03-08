@@ -45,4 +45,17 @@ const goBackIfTokenExist = () => {
   }
 };
 
+const onLogout = () => {
+  console.log("Inside logout script file!");
+
+  console.log("TOKEN: ", localStorage.getItem("token"));
+
+  localStorage.removeItem("token");
+
+  console.log("TOKEN: ", localStorage.getItem("token"));
+
+  window.location.replace("/");
+
+};
+
 goBackIfTokenExist();

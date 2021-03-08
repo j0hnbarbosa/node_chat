@@ -4,8 +4,7 @@
 const getUsers = async () => {
   getTable().innerHTML = "";
 
-  const url = `${URL_WEB}/users`;
-  const { data } = await getFetch(url, {"method": "GET", headers});
+  const { data } = await getFetch("/users", {"method": "GET", headers});
   buildTable(data);
 
 };

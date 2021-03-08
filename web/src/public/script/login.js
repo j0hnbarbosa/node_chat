@@ -15,7 +15,7 @@ const onLogin = async (e) => {
       "password": values["password"].trim(),
     });
 
-    const { data, res } = await getFetch(`${URL_WEB}/`, { "method": "POST", headers, "body": formBody });
+    const { data, res } = await getFetch("/", { "method": "POST", headers, "body": formBody });
       
     if (res.status !== 200) {
       return null;
@@ -26,6 +26,6 @@ const onLogin = async (e) => {
 
     localStorage.setItem("token", data.token);
 
-    window.location.href = `${URL_WEB.replace(/8080/, "8082")}/users.html`;
+    window.location.href = "users.html";
   }
 };

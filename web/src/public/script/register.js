@@ -14,7 +14,7 @@ const onSubmit = async (e) => {
       "password": values["password"].trim(),
     });
 
-    const url = `${URL_WEB}/register`;
+    const url = "/register";
 
     const { data } = await getFetch(url, { "method": "POST", headers, "body": formBody });
 
@@ -25,7 +25,7 @@ const onSubmit = async (e) => {
 
     alert("Your data has been recorded in the database!");
     console.log(window);
-    window.location.href = `${URL_WEB.replace(/8080/, "8082")}/users.html`;
+    window.location.href = "/users.html";
 
   }
 };
