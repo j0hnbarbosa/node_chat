@@ -29,7 +29,7 @@ npm run start
   - [x] Create user login screen
   - [x] Save user in the database
   - [x] Validate if a user has a valid token
-  - [] Add a button to exit in all pages that the user need a token to access
+  - [ ] Add a button to exit in all pages that the user need a token to access
 
   #### Chat part
   - [ ] Verify users that are online
