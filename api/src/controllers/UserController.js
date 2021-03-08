@@ -18,10 +18,11 @@ const UserController = {
   create: async (req, res) => {
     console.log("Request URL:", req.originalUrl);
     const { username, email, password } = req.body;
+    const emailLowerCase = email.toLowerCase();
 
     console.log("BODY:", req.body);
 
-    const user = await Users.create({ username, email, password });
+    const user = await Users.create({ username, email: emailLowerCase, password });
     return res.status(200).send(user);
   },
 

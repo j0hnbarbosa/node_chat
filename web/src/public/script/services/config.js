@@ -25,12 +25,14 @@ const getFetch = async (url = "", headers) => {
       console.log("res);", res);
 
       localStorage.removeItem("token");
-
-      if(window.location.pathname !== "/") {
+      const path = window.location.pathname;
+      if(path !== "/" && path !== "/register.html") {
+        debugger
         window.location.href = "/";
       }
 
       const errorMsg = (await res.json()).message || res.statusText;
+
       throw { message: errorMsg };
     }
 

@@ -5,7 +5,10 @@ const LoginController = {
   findOne: async (req, res) => {
     const { email, password } = req.body;
     if(email && password) {
-      const user = await Users.findOne({ where: { email, password } });
+      const emailLowerCase = email.toLowerCase();
+
+      const user = await Users.findOne({ where: { email: emailLowerCase, password } });
+
       if(!user) {
         return res.status(404).send({ message: "User not found!"});
       }
@@ -19,15 +22,21 @@ const LoginController = {
   },
 
   create: async (req, res) => {
-    console.log("Request URL:", req.originalUrl);
-    const { username, email, password } = req.body;
+    try{
+      console.log("Request URL:", req.originalUrl);
+      const { username, email, password } = req.body;
+      const emailLowerCase = email.toLowerCase();
 
-    console.log("BODY:", req.body);
+      console.log("BODY:", req.body);
 
-    const user = await Users.create({ username, email, password });
-    const token = generateAccessToken(email, password);
+      const user = await Users.create({ username, email: emailLowerCase, password });
+      const token = generateAccessToken(email, password);
 
-    return res.status(200).send({ ...user, token });
+      return res.status(200).send({ ...user, token });
+    } catch(err) {
+      console.log(err);
+      return res.status(500).send({ message: "E-mail already registered!" });
+    }
   },
 };
 
